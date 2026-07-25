@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #f8f6f3;
-  --color-brand-100: #ede8e0;
-  --color-brand-500: #8b7355;
-  --color-brand-700: #5c4a35;
-  --color-brand-900: #2c2419;
+  /* 1. توحيد كل درجات البراند للتخصيص السماوي الفاتح */
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0ea5e9; /* لون سماوي رئيسي ناصع */
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
 
-  --color-surface: #faf9f7;
-  --color-ink: #1a1814;
-  --color-muted: #6b6560;
+  /* 2. إلغاء اللون البني/الخشب وتصفيطه بأسماء المتغيرات الشائعة */
+  --color-stone-900: #f8fafc;
+  --color-stone-800: #f1f5f9;
+  --color-amber-900: #e0f2fe;
+  --color-amber-800: #bae6fd;
+  --color-brown-900: #f0f9ff;
 
-  --font-display: var(--font-cormorant), Georgia, serif;
+  /* 3. خلفيات ناصعة البياض ونصوص مريحة */
+  --color-surface: #ffffff;
+  --color-ink: #1e293b;
+  --color-muted: #64748b;
+
+  --font-display: var(--font-outfit), system-ui, sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
@@ -21,18 +35,17 @@
   }
 
   body {
-    background-color: var(--color-surface);
-    color: var(--color-ink);
+    background-color: var(--color-surface) !important;
+    color: var(--color-ink) !important;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  /* إجبار العناوين في الهيرو والموقع تكون فتحة ومريحة */
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
+    color: var(--color-ink);
   }
 }
 
