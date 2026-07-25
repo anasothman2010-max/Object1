@@ -8,12 +8,12 @@ import { Contact } from "@/components/sections/Contact";
 export default function HomePage() {
   return (
     <>
-      {/* <Hero /> */}
+      <Contact />
       <FeaturedProperties />
       <About />
       <Services />
       <PropertyListings />
-      <Contact />
+      <Hero />
     </>
   );
 }
