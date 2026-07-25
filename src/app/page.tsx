@@ -8,9 +8,9 @@ import { Contact } from "@/components/sections/Contact";
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <FeaturedProperties />
-      {/* <About /> */}
+      <About />
       <Services />
       <PropertyListings />
       <Contact />
