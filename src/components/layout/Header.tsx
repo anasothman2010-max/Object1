@@ -1,22 +1,43 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"; // تم استيراد Image
 import { useState } from "react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { SITE } from "@/constants/site";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 
+// افترض أن هذا هو مسار اللوجو الخاص بك، تأكد من وضعه في المجلد public
+const LOGO_SRC = "/image_0.png"; 
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-ink/90 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 bg-ink/90 backdrop-blur-md border-b border-white/5">
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="font-display text-2xl font-light tracking-widest text-white">
-          {SITE.name}
+        
+        {/* تعديل منطقة الشعار لتشمل الصورة والنص */}
+        <Link href="/" className="group flex items-center gap-3">
+          {/* إضافة عنصر الصورة */}
+          <div className="relative h-10 w-10 overflow-hidden rounded-full border border-white/20 bg-white transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src={LOGO_SRC}
+              alt={`${SITE.name} Logo`}
+              fill
+              className="object-contain p-1.5" // تم إضافة padding بسيط
+              priority
+            />
+          </div>
+          
+          {/* النص الخاص باسم الموقع */}
+          <span className="font-display text-2xl font-light tracking-widest text-white transition-opacity group-hover:opacity-80">
+            {SITE.name}
+          </span>
         </Link>
 
+        {/* التنقل للشاشات الكبيرة (كما هو) */}
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
@@ -29,6 +50,7 @@ export function Header() {
           ))}
         </nav>
 
+        {/* زر القائمة (الهامبرجر) للشاشات الصغيرة (كما هو) */}
         <button
           type="button"
           className="flex h-10 w-10 items-center justify-center lg:hidden"
@@ -59,6 +81,7 @@ export function Header() {
         </button>
       </Container>
 
+      {/* القائمة المنسدلة للشاشات الصغيرة (كما هو) */}
       <nav
         className={cn(
           "overflow-hidden border-t border-white/10 bg-ink transition-all duration-300 lg:hidden",
